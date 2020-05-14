@@ -42,6 +42,48 @@
             <a href="https://netology.ru/contacts" class="menu__link">Контакты</a>
         </li>
     </ul>
+
+<p>Пожалуйста, не используйте такие глобальные переменные для доступа к элементам
+    Это поведение соответствует стандарту, но поддерживается в основном для совместимости, как осколок далёкого прошлого.
+    
+    Браузер пытается помочь нам, смешивая пространства имён JS и DOM. Это удобно для простых скриптов, которые находятся прямо в HTML, но, вообще говоря, не очень хорошо. Возможны конфликты имён. Кроме того, при чтении JS-кода, не видя HTML, непонятно, откуда берётся переменная.
+    
+    В этом учебнике мы будем обращаться к элементам по id в примерах для краткости, когда очевидно, откуда берётся элемент.
+    
+    В реальной жизни лучше использовать document.getElementById.</p>
+    <ul class="menu menu_main">
+        <li class="menu__item">
+            <a href="https://netology.ru/" class="menu__link">Главная</a>
+        </li>
+        <li class="menu__item">
+            <a href="" class="menu__link">О компании</a>
+            <ul class="menu menu_sub">
+                <li class="menu__item">
+                    <a href="https://netology.ru/clients" class="menu__link">Клиенты</a>
+                </li>
+                <li class="menu__item">
+                    <a href="https://netology.ru/service" class="menu__link">Обслуживание</a>
+                </li>
+                <li class="menu__item">
+                    <a href="https://netology.ru/wearecool" class="menu__link">Награды</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu__item">
+            <a href="" class="menu__link">Услуги</a>
+            <ul class="menu menu_sub">
+                <li class="menu__item">
+                    <a href="https://netology.ru/learn" class="menu__link">Обучение</a>
+                </li>
+                <li class="menu__item">
+                    <a href="https://netology.ru/consult" class="menu__link">Консультации</a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu__item">
+            <a href="https://netology.ru/contacts" class="menu__link">Контакты</a>
+        </li>
+    </ul>
     <script src="task.js"></script>
 </body>
 </html>
