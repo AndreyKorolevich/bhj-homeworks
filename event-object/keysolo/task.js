@@ -4,10 +4,15 @@ class Game {
     this.wordElement = container.querySelector('.word');
     this.winsElement = container.querySelector('.status__wins');
     this.lossElement = container.querySelector('.status__loss');
+    this.presKey = this.presKey.bind(this);
 
     this.reset();
-
+    this.pressSymbol;
+    this.valueTime;
     this.registerEvents();
+    this.amauntSecondFinish = document.getElementsByClassName('symbol').length;
+    document.querySelector('.status__time').textContent = this.amauntSecondFinish;
+    this.timer();
   }
 
   reset() {
@@ -16,7 +21,35 @@ class Game {
     this.lossElement.textContent = 0;
   }
 
+  zeroingValue() {
+    this.amauntSecondFinish = document.getElementsByClassName('symbol').length;
+    document.querySelector('.status__time').textContent = this.amauntSecondFinish;
+    this.valueTime = document.querySelector('.status__time').textContent;
+  }
+  timer() {
+    this.valueTime = document.querySelector('.status__time').textContent;
+    const leftSecond = () => {
+      this.valueTime--;
+      document.querySelector('.status__time').textContent = this.valueTime;
+      if(this.valueTime === 0) {
+        this.fail();
+        this.zeroingValue();
+      }
+    }
+    setInterval(leftSecond,1000)
+  }
+
+  presKey(event) {
+    this.pressSymbol = event.key;
+    if(this.pressSymbol.toLowerCase() ===  this.currentSymbol.textContent) {
+      this.success();
+    } else {
+      this.fail();
+    }
+  }
+
   registerEvents() {
+   document.addEventListener('keyup',this.presKey)
     /*
       TODO:
       Написать обработчик события, который откликается
@@ -83,7 +116,9 @@ class Game {
     this.wordElement.innerHTML = html;
 
     this.currentSymbol = this.wordElement.querySelector('.symbol_current');
+    this.zeroingValue();
   }
+
 }
 
 new Game(document.getElementById('game'))
