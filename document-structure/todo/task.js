@@ -38,6 +38,7 @@ const sentThing = event => {
     localStorage.setItem(keyTaskNumber, value);//сохраняем в localStorage текст задачи
     keyTaskNumber++;//изменяем id для уникальности задачи
     localStorage.setItem('keyTaskNumber', keyTaskNumber);//переприсваиваем id в localStorage
+    document.querySelector('.tasks__input').value = '';
 }
 
 const deleteTask = (event) => {//обработчик события нажатия на крестик
