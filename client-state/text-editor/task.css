@@ -1,0 +1,9 @@
+.btn {
+height: 30px;
+}
+
+.block {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
