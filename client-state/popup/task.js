@@ -1,6 +1,6 @@
 const subscribeModal = document.getElementById('subscribe-modal');
 const modalClose = document.querySelector('.modal__close');
-
+//document.cookie='class=; Expires=Thu, 01 Jan 1970 00:00:00 GMT';
 const getCookie = (name) => {
     const value = "; " + document.cookie;
     let parts = value.split("; " + name + "=");
@@ -9,7 +9,7 @@ const getCookie = (name) => {
     }
 };
 
-if (document.cookie.length === 0) {
+if (document.cookie.length === 0 || getCookie('class') === 'modal_active') {
     subscribeModal.classList.add('modal_active');
     document.cookie = 'class=modal_active;'
 }
